@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barista Portfolio | Crafting Experiences One Cup at a Time</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        espresso: '#2C1A1D',
+                        roast: '#1E1012',
+                        caramel: '#C87D55',
+                        amber: '#E09F67',
+                        cream: '#FDFBF7',
+                        oat: '#F3ECE1',
+                        latte: '#E6D7C3',
+                        warmGray: '#8C827A'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(200, 125, 85, 0.15);
+        }
+        .glass-dark {
+            background: rgba(30, 16, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(224, 159, 103, 0.2);
+        }
+        .hero-bg {
+            background: linear-gradient(to right, rgba(30, 16, 18, 0.85), rgba(44, 26, 29, 0.7)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-cream text-espresso font-sans antialiased selection:bg-caramel selection:text-cream">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between glass-card rounded-full px-6 py-3 shadow-lg">
+                <a href="#" class="flex items-center gap-2 text-2xl font-serif font-bold text-espresso tracking-tight">
+                    <i class="fa-solid font-normal fa-mug-hot text-caramel"></i>
+                    <span>Rhafa<span class="text-caramel font-sans text-xs uppercase tracking-widest block font-bold">Coffee Craftsman</span></span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#about" class="hover:text-caramel transition-colors">Tentang Saya</a>
+                    <a href="#specialty" class="hover:text-caramel transition-colors">Signature Menu</a>
+                    <a href="#gallery" class="hover:text-caramel transition-colors">Galeri Bar</a>
+                    <a href="#calculator" class="hover:text-caramel transition-colors">Kalkulator Seduh</a>
+                    <a href="#experience" class="hover:text-caramel transition-colors">Sertifikasi</a>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase text-cream bg-caramel hover:bg-espresso transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-0.5">
+                        Sewa / Kolaborasi
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-espresso text-2xl focus:outline-none" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden glass-card rounded-2xl mt-3 p-6 shadow-2xl transition-all duration-300">
+                <div class="flex flex-col space-y-4 font-medium text-center">
+                    <a href="#about" class="mobile-link py-2 hover:text-caramel border-b border-latte/50">Tentang Saya</a>
+                    <a href="#specialty" class="mobile-link py-2 hover:text-caramel border-b border-latte/50">Signature Menu</a>
+                    <a href="#gallery" class="mobile-link py-2 hover:text-caramel border-b border-latte/50">Galeri Bar</a>
+                    <a href="#calculator" class="mobile-link py-2 hover:text-caramel border-b border-latte/50">Kalkulator Seduh</a>
+                    <a href="#experience" class="mobile-link py-2 hover:text-caramel border-b border-latte/50">Sertifikasi</a>
+                    <a href="#contact" class="mobile-link py-2 text-caramel font-bold">Hubungi Saya</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen hero-bg text-cream flex items-center pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark text-amber text-xs font-semibold tracking-wider uppercase">
+                    <i class="fa-solid fa-award"></i>
+                    <span>SCA Certified Professional Barista</span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold leading-tight tracking-normal">
+                    Crafting <span class="italic font-normal text-amber">Experiences</span>, One Cup at a Time.
+                </h1>
+
+                <p class="text-latte/90 text-base sm:text-lg max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                    Selamat datang di ruang presisi dan rasa. Saya Rhafa Ramadhan, Head Barista & Sensory Specialist yang beraspirasi menghadirkan harmoni dalam setiap esensi kopi spesialitas.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#specialty" class="w-full sm:w-auto px-8 py-4 rounded-full bg-caramel hover:bg-amber text-roast font-bold text-sm tracking-wide uppercase transition-all duration-300 text-center shadow-lg hover:shadow-amber/20">
+                        Lihat Menu Signature
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-latte/40 hover:border-cream text-cream font-semibold text-sm tracking-wide uppercase transition-all duration-300 text-center glass-dark">
+                        Hubungi Saya
+                    </a>
+                </div>
+
+                <div class="pt-8 border-t border-latte/20 grid grid-cols-3 gap-4 text-center lg:text-left">
+                    <div>
+                        <p class="text-3xl font-serif font-bold text-amber">8+</p>
+                        <p class="text-xs text-latte/70 uppercase tracking-wider mt-1">Tahun Pengalaman</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-serif font-bold text-amber">12k+</p>
+                        <p class="text-xs text-latte/70 uppercase tracking-wider mt-1">Cangkir Disajikan</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-serif font-bold text-amber">15+</p>
+                        <p class="text-xs text-latte/70 uppercase tracking-wider mt-1">Penghargaan Barista</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Badge Avatar -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+                    <!-- Decorative Rings -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-caramel/40 animate-[spin_60s_linear_infinite]"></div>
+                    <div class="absolute -inset-4 rounded-full border border-latte/20"></div>
+                    
+                    <!-- Profile Image -->
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800" 
+                         alt="Rhafa Ramadhan Barista" 
+                         onerror="this.src='https://placehold.co/800x800/1E1012/FDFBF7?text=Barista+Profile'"
+                         class="w-full h-full object-cover rounded-full shadow-2xl border-4 border-caramel/30 relative z-10">
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-4 right-2 sm:right-6 z-20 glass-dark px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-caramel/30">
+                        <div class="w-10 h-10 rounded-full bg-caramel/20 flex items-center justify-center text-amber">
+                            <i class="fa-solid fa-trophy text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-latte/70 uppercase font-bold">Juara 1</p>
+                            <p class="text-sm font-bold text-cream">Manual Brew Champ 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Me & Skillset Section -->
+    <section id="about" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-5 relative">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Barista Pouring Coffee" 
+                         onerror="this.src='https://placehold.co/1000x1200/2C1A1D/FDFBF7?text=Barista+At+Work'"
+                         class="w-full h-[500px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-roast/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-cream">
+                        <blockquote class="italic font-serif text-lg text-latte">
+                            "Menyeduh kopi bukan sekadar mengekstrak cairan, tapi menyampaikan cerita petani hingga ke lidah penikmatnya."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-8">
+                <div>
+                    <span class="text-caramel font-semibold text-xs uppercase tracking-widest">Filosofi & Profil</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-espresso mt-2">DEDIKASI UNTUK EKSTRAKSI PERFEK</h2>
+                </div>
+
+                <p class="text-warmGray leading-relaxed">
+                    Berawal dari kecintaan mendalam terhadap aroma seduhan pertama di pagi hari, perjalanan saya di industri kopi spesialitas telah berjalan selama lebih dari 8 tahun. Saya berfokus pada keseimbangan rasa, ketepatan teknik seduh, serta keramahan layanan bar. Bagi saya, coffee shop adalah tempat di mana sains ekstraksi bertemu dengan seni hospitabilitas.
+                </p>
+
+                <!-- Skill Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-oat/60 border border-latte/50 flex items-start gap-4">
+                        <div class="p-3 bg-caramel/10 text-caramel rounded-xl">
+                            <i class="fa-solid fa-fire-burner text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-espresso">Espresso Extraction</h4>
+                            <p class="text-xs text-warmGray mt-1">Dialing-in Grind Size, Pressure Profiling & Brew Ratio.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-oat/60 border border-latte/50 flex items-start gap-4">
+                        <div class="p-3 bg-caramel/10 text-caramel rounded-xl">
+                            <i class="fa-solid fa-feather-pointed text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-espresso">Latte Art Mastery</h4>
+                            <p class="text-xs text-warmGray mt-1">Rosetta, Swan, & Multi-tulip Microfoam Precision.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-oat/60 border border-latte/50 flex items-start gap-4">
+                        <div class="p-3 bg-caramel/10 text-caramel rounded-xl">
+                            <i class="fa-solid fa-filter text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-espresso">Manual Brew Specialty</h4>
+                            <p class="text-xs text-warmGray mt-1">V60, Kalita Wave, Aeropress & Syphon Brewing.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-oat/60 border border-latte/50 flex items-start gap-4">
+                        <div class="p-3 bg-caramel/10 text-caramel rounded-xl">
+                            <i class="fa-solid fa-eye text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-espresso">Sensory & Cupping</h4>
+                            <p class="text-xs text-warmGray mt-1">Identifikasi Flavor Profile berdasarkan SCA Flavor Wheel.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialty & Signature Drinks Gallery -->
+    <section id="specialty" class="py-24 bg-oat/40 border-y border-latte/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-caramel font-semibold text-xs uppercase tracking-widest">Koleksi Terkurasi</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-espresso mt-2">Signature Drink & Specialty Menu</h2>
+                <p class="text-warmGray text-sm mt-3">Kreasi rasa otentik yang memadukan keahlian barista, inovasi bahan, dan biji kopi pilihan terbaik.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Drink Item 1 -->
+                <div class="glass-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&q=80&w=800" 
+                             alt="Smoked Cinnamon Cold Brew" 
+                             onerror="this.src='https://placehold.co/800x600/2C1A1D/FDFBF7?text=Signature+Drink'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-espresso/80 backdrop-blur-md text-amber font-semibold text-xs px-3 py-1.5 rounded-full border border-amber/30">
+                            Signature Mocktail
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-serif font-bold text-espresso">Smoked Cinnamon Cold Brew</h3>
+                                <p class="text-xs text-caramel font-medium mt-0.5">Slow Fermentation Brew</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-warmGray leading-relaxed">
+                            Ekstraksi dingin selama 18 jam dengan sentuhan kayu manis asap, jus apel alami, dan garnish rosemary bakar.
+                        </p>
+                        
+                        <div class="pt-4 border-t border-latte/60 space-y-2">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-warmGray">Beans Origin:</span>
+                                <span class="font-semibold text-espresso">Gayo Wine Process</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-warmGray">Flavor Notes:</span>
+                                <span class="font-semibold text-caramel">Red Apple, Spice, Caramel</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink Item 2 -->
+                <div class="glass-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80&w=800" 
+                             alt="Velvet Microfoam Flat White" 
+                             onerror="this.src='https://placehold.co/800x600/2C1A1D/FDFBF7?text=Flat+White'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-espresso/80 backdrop-blur-md text-amber font-semibold text-xs px-3 py-1.5 rounded-full border border-amber/30">
+                            Milk-Based Classic
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-serif font-bold text-espresso">Velvet Microfoam Flat White</h3>
+                                <p class="text-xs text-caramel font-medium mt-0.5">Double Ristretto</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-warmGray leading-relaxed">
+                            Double ristretto kaya rasa diselimuti susu steamed berkepadatan halus bagaikan sutra dengan suhu ideal 60°C.
+                        </p>
+                        
+                        <div class="pt-4 border-t border-latte/60 space-y-2">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-warmGray">Beans Origin:</span>
+                                <span class="font-semibold text-espresso">House Blend (70% Eth / 30% Bra)</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-warmGray">Flavor Notes:</span>
+                                <span class="font-semibold text-caramel">Dark Chocolate, Hazelnut, Creamy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink Item 3 -->
+                <div class="glass-card rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-300 group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" 
+                             alt="Floral Pour Over V60" 
+                             onerror="this.src='https://placehold.co/800x600/2C1A1D/FDFBF7?text=Manual+Brew'"
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 bg-espresso/80 backdrop-blur-md text-amber font-semibold text-xs px-3 py-1.5 rounded-full border border-amber/30">
+                            Single Origin V60
+                        </span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-serif font-bold text-espresso">Ethiopia Yirgacheffe V60</h3>
+                                <p class="text-xs text-caramel font-medium mt-0.5">Light Roast Specialty</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-warmGray leading-relaxed">
+                            Seduhan manual dengan metode pour over presisi tinggi, menonjolkan kejelasan rasa floral yang bersih dan keasaman sitrus yang manis.
+                        </p>
+                        
+                        <div class="pt-4 border-t border-latte/60 space-y-2">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-warmGray">Beans Origin:</span>
+                                <span class="font-semibold text-espresso">Yirgacheffe Gedeb Washed</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-warmGray">Flavor Notes:</span>
+                                <span class="font-semibold text-caramel">Jasmine, Bergamot, Honey</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Brew Ratio Calculator Section -->
+    <section id="calculator" class="py-24 bg-espresso text-cream relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-caramel/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber font-semibold text-xs uppercase tracking-widest">Interactive Tool</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold mt-2">Kalkulator Seduh Kopi Presisi</h2>
+                <p class="text-latte/80 text-sm mt-3">Tentukan alat dan jumlah bubuk kopi Anda, kalkulator akan menghitung rasio air, estimasi waktu, serta langkah penyeduhan secara akurat.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-dark p-6 sm:p-10 rounded-3xl border border-caramel/20 shadow-2xl">
+                
+                <!-- Method Selection Buttons -->
+                <div class="mb-8">
+                    <label class="block text-xs uppercase tracking-wider text-latte/70 font-semibold mb-3">Pilih Metode Seduh:</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="brew-methods">
+                        <button type="button" data-method="v60" data-ratio="15" data-time="2:30 - 3:00" data-grind="Medium-Fine" class="brew-btn active p-4 rounded-2xl border border-caramel text-center hover:bg-caramel/20 transition-all bg-caramel/20">
+                            <i class="fa-solid fa-filter text-2xl text-amber block mb-2"></i>
+                            <span class="font-bold text-sm block">V60 Pour Over</span>
+                            <span class="text-[10px] text-latte/70">Rasio 1:15</span>
+                        </button>
+                        
+                        <button type="button" data-method="aeropress" data-ratio="12" data-time="1:45 - 2:00" data-grind="Medium" class="brew-btn p-4 rounded-2xl border border-latte/20 text-center hover:bg-caramel/20 transition-all">
+                            <i class="fa-solid fa-flask text-2xl text-amber block mb-2"></i>
+                            <span class="font-bold text-sm block">AeroPress</span>
+                            <span class="text-[10px] text-latte/70">Rasio 1:12</span>
+                        </button>
+
+                        <button type="button" data-method="frenchpress" data-ratio="14" data-time="4:00" data-grind="Coarse" class="brew-btn p-4 rounded-2xl border border-latte/20 text-center hover:bg-caramel/20 transition-all">
+                            <i class="fa-solid fa-dumpster-fire text-2xl text-amber block mb-2"></i>
+                            <span class="font-bold text-sm block">French Press</span>
+                            <span class="text-[10px] text-latte/70">Rasio 1:14</span>
+                        </button>
+
+                        <button type="button" data-method="japanese" data-ratio="16" data-time="2:15 - 2:45" data-grind="Medium-Fine" class="brew-btn p-4 rounded-2xl border border-latte/20 text-center hover:bg-caramel/20 transition-all">
+                            <i class="fa-solid fa-snowflake text-2xl text-amber block mb-2"></i>
+                            <span class="font-bold text-sm block">Japanese Ice</span>
+                            <span class="text-[10px] text-latte/70">Rasio 1:16 (Es+Air)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input Slider & Controls -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-roast/50 p-6 rounded-2xl border border-latte/10">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <label for="coffee-weight" class="text-sm font-semibold text-cream">Dosis Kopi (Gram):</label>
+                            <span class="text-2xl font-serif font-bold text-amber" id="coffee-val">15 g</span>
+                        </div>
+                        <input type="range" id="coffee-weight" min="10" max="60" value="15" step="1" 
+                               class="w-full h-2 bg-latte/20 rounded-lg appearance-none cursor-pointer accent-caramel">
+                        <div class="flex justify-between text-[11px] text-latte/60">
+                            <span>10g (1 Cangkir kecil)</span>
+                            <span>30g (Sharing)</span>
+                            <span>60g (Server Besar)</span>
+                        </div>
+                    </div>
+
+                    <!-- Output Details Grid -->
+                    <div class="grid grid-cols-2 gap-4 border-t md:border-t-0 md:border-l border-latte/20 pt-4 md:pt-0 md:pl-6">
+                        <div>
+                            <span class="text-xs text-latte/60 uppercase block">Air Dibutuhkan:</span>
+                            <span class="text-2xl font-serif font-bold text-amber" id="water-output">225 ml</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-latte/60 uppercase block">Suhu Air:</span>
+                            <span class="text-2xl font-serif font-bold text-cream" id="temp-output">92°C - 94°C</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-latte/60 uppercase block">Ukuran Gilingan:</span>
+                            <span class="text-sm font-semibold text-latte" id="grind-output">Medium-Fine</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-latte/60 uppercase block">Estimasi Waktu:</span>
+                            <span class="text-sm font-semibold text-latte" id="time-output">2:30 - 3:00 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pour Instructions -->
+                <div class="mt-6 p-4 rounded-xl bg-caramel/10 border border-caramel/20 text-xs text-latte/90 leading-relaxed" id="pour-guide">
+                    <p class="font-bold text-amber mb-1"><i class="fa-solid fa-circle-info mr-1"></i> Panduan Seduhan (V60 Pour Over):</p>
+                    <p>1. Bloom: Tuang <span class="font-bold text-cream" id="bloom-val">45 ml</span> air (3x berat kopi), tunggu 45 detik.<br>
+                    2. Pour ke-2: Tuang hingga <span class="font-bold text-cream" id="pour1-val">135 ml</span> secara melingkar perlahan.<br>
+                    3. Pour ke-3: Tuang sisa air hingga mencapai <span class="font-bold text-cream" id="pour2-val">225 ml</span> total.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section with Filters -->
+    <section id="gallery" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-caramel font-semibold text-xs uppercase tracking-widest">Visual Work</span>
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-espresso mt-2">Galeri Barista & Latte Art</h2>
+            <p class="text-warmGray text-sm mt-3">Momen di balik meja bar, kompetisi, dan kreasi estetika latte art.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10">
+            <button class="gallery-filter-btn active px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-espresso text-cream transition-all" data-filter="all">Semua</button>
+            <button class="gallery-filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-oat text-espresso hover:bg-caramel hover:text-cream transition-all" data-filter="latteart">Latte Art</button>
+            <button class="gallery-filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-oat text-espresso hover:bg-caramel hover:text-cream transition-all" data-filter="barlife">Bar Life & Setup</button>
+            <button class="gallery-filter-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-oat text-espresso hover:bg-caramel hover:text-cream transition-all" data-filter="manualbrew">Manual Brew</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+            
+            <!-- Item 1 -->
+            <div class="gallery-item latteart overflow-hidden rounded-2xl relative group h-72 shadow-md">
+                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&q=80&w=800" 
+                     alt="Swan Latte Art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-roast/90 via-roast/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                        <span class="text-amber text-xs uppercase tracking-wider font-semibold">Latte Art</span>
+                        <h4 class="text-cream font-serif font-bold text-lg">Multi-tulip & Swan Pattern</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item barlife overflow-hidden rounded-2xl relative group h-72 shadow-md">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800" 
+                     alt="Espresso Machine Setup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-roast/90 via-roast/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                        <span class="text-amber text-xs uppercase tracking-wider font-semibold">Bar Life</span>
+                        <h4 class="text-cream font-serif font-bold text-lg">Commercial Espresso Machine Calibration</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item manualbrew overflow-hidden rounded-2xl relative group h-72 shadow-md">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=800" 
+                     alt="V60 Pouring" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-roast/90 via-roast/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                        <span class="text-amber text-xs uppercase tracking-wider font-semibold">Manual Brew</span>
+                        <h4 class="text-cream font-serif font-bold text-lg">Precision Pouring V60 Method</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item latteart overflow-hidden rounded-2xl relative group h-72 shadow-md">
+                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&q=80&w=800" 
+                     alt="Rosetta Latte Art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-roast/90 via-roast/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                        <span class="text-amber text-xs uppercase tracking-wider font-semibold">Latte Art</span>
+                        <h4 class="text-cream font-serif font-bold text-lg">Inverted Rosetta Design</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item barlife overflow-hidden rounded-2xl relative group h-72 shadow-md">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" 
+                     alt="Coffee Beans Grinding" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-roast/90 via-roast/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                        <span class="text-amber text-xs uppercase tracking-wider font-semibold">Bar Life</span>
+                        <h4 class="text-cream font-serif font-bold text-lg">Cupping & Sensory Session</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item manualbrew overflow-hidden rounded-2xl relative group h-72 shadow-md">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800" 
+                     alt="Syphon Coffee Brew" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-roast/90 via-roast/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <div>
+                        <span class="text-amber text-xs uppercase tracking-wider font-semibold">Manual Brew</span>
+                        <h4 class="text-cream font-serif font-bold text-lg">Syphon Extraction Process</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Certification & Experience Timeline Section -->
+    <section id="experience" class="py-24 bg-oat/50 border-t border-latte/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Certifications Badges -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-caramel font-semibold text-xs uppercase tracking-widest">Kredensial Resmi</span>
+                        <h2 class="text-3xl font-serif font-bold text-espresso mt-2">Lisensi & Sertifikasi</h2>
+                    </div>
+
+                    <p class="text-warmGray text-sm">
+                        Terus mengasah kompetensi secara profesional melalui standar Specialty Coffee Association (SCA) serta kejuaraan nasional.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <!-- Badge Card 1 -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center gap-4 shadow-sm border border-latte">
+                            <div class="w-14 h-14 rounded-full bg-caramel/20 flex items-center justify-center text-caramel text-2xl flex-shrink-0">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-espresso">SCA Certified Barista Professional</h4>
+                                <p class="text-xs text-warmGray">Specialty Coffee Association • 2022</p>
+                                <span class="inline-block mt-2 text-[10px] bg-caramel/10 text-caramel px-2 py-0.5 rounded font-semibold">Lisensi Tingkat Lanjut</span>
+                            </div>
+                        </div>
+
+                        <!-- Badge Card 2 -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center gap-4 shadow-sm border border-latte">
+                            <div class="w-14 h-14 rounded-full bg-amber/20 flex items-center justify-center text-amber text-2xl flex-shrink-0">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-espresso">SCA Sensory Skills Intermediate</h4>
+                                <p class="text-xs text-warmGray">Specialty Coffee Association • 2021</p>
+                                <span class="inline-block mt-2 text-[10px] bg-amber/10 text-espresso px-2 py-0.5 rounded font-semibold">Evaluasi Cita Rasa</span>
+                            </div>
+                        </div>
+
+                        <!-- Badge Card 3 -->
+                        <div class="glass-card p-5 rounded-2xl flex items-center gap-4 shadow-sm border border-latte">
+                            <div class="w-14 h-14 rounded-full bg-espresso/10 flex items-center justify-center text-espresso text-2xl flex-shrink-0">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-espresso">1st Winner Indonesia V60 Open</h4>
+                                <p class="text-xs text-warmGray">National Brewer Championship • 2024</p>
+                                <span class="inline-block mt-2 text-[10px] bg-espresso/10 text-espresso px-2 py-0.5 rounded font-semibold">Juara Nasional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Timeline -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-caramel font-semibold text-xs uppercase tracking-widest">Jejak Karir</span>
+                        <h2 class="text-3xl font-serif font-bold text-espresso mt-2">Pengalaman Kerja</h2>
+                    </div>
+
+                    <div class="relative border-l-2 border-caramel/30 pl-6 sm:pl-8 space-y-8 ml-2">
+                        
+                        <!-- Timeline Item 1 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-caramel border-4 border-cream shadow"></div>
+                            <span class="text-xs font-bold text-caramel tracking-wider uppercase">2022 - Sekarang</span>
+                            <h3 class="text-xl font-bold text-espresso mt-1">Head Barista & Bar Manager</h3>
+                            <p class="text-xs text-warmGray font-medium">Artisan Roast Coffee Co., Jakarta</p>
+                            <p class="text-xs text-warmGray leading-relaxed mt-2">
+                                Memimpin tim berisi 8 barista, mengelola kendali mutu (quality control) ekstrak espresso, merancang seasonal signature menu, serta menyelenggarakan internal cupping mingguan.
+                            </p>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-latte border-4 border-cream shadow"></div>
+                            <span class="text-xs font-bold text-caramel tracking-wider uppercase">2020 - 2022</span>
+                            <h3 class="text-xl font-bold text-espresso mt-1">Senior Specialty Barista</h3>
+                            <p class="text-xs text-warmGray font-medium">The Brew Lab & Roastery, Bandung</p>
+                            <p class="text-xs text-warmGray leading-relaxed mt-2">
+                                Bertanggung jawab atas seduhan manual brew single origin, kalibrasi mesin espsresso harian, dan mengedukasi pelanggan mengenai flavor profile dari berbagai origin biji kopi.
+                            </p>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1 w-4 h-4 rounded-full bg-latte border-4 border-cream shadow"></div>
+                            <span class="text-xs font-bold text-caramel tracking-wider uppercase">2018 - 2020</span>
+                            <h3 class="text-xl font-bold text-espresso mt-1">Junior Barista</h3>
+                            <p class="text-xs text-warmGray font-medium">Bean & Leaf Coffee Shop</p>
+                            <p class="text-xs text-warmGray leading-relaxed mt-2">
+                                Mengembangkan fondasi dasar espresso extraction, teknik microfoaming milk untuk latte art, dan layanan kustomisasi pelanggan.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Catering Booking Section -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 glass-card rounded-3xl p-8 sm:p-12 shadow-2xl border border-latte">
+            
+            <!-- Contact Info -->
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <span class="text-caramel font-semibold text-xs uppercase tracking-widest">Mari Bekerja Sama</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-espresso mt-2">Layanan & Kontak Barista</h2>
+                    <p class="text-warmGray text-sm mt-3 leading-relaxed">
+                        Tersedia untuk Private Coffee Catering event, Konsultasi Menu & Setup Coffee Shop, Barista Workshop, atau sekadar berdiskusi mengenai dunia kopi.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-warmGray font-semibold">Coffee Shop Saat Ini:</p>
+                            <p class="text-sm font-bold text-espresso">Artisan Roast Coffee Co., Senopati, Jakarta</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-warmGray font-semibold">Email Kemitraan:</p>
+                            <p class="text-sm font-bold text-espresso">Rhafa Ramadhan.barista@coffee-craft.id</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-caramel/10 text-caramel flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-warmGray font-semibold">WhatsApp Business:</p>
+                            <p class="text-sm font-bold text-espresso">+62 812-3456-7890</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="pt-4 border-t border-latte">
+                    <p class="text-xs font-semibold text-warmGray uppercase tracking-wider mb-3">Ikuti Aktivitas Menyeduh Saya:</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-espresso text-cream flex items-center justify-center hover:bg-caramel transition-colors" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-espresso text-cream flex items-center justify-center hover:bg-caramel transition-colors" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-espresso text-cream flex items-center justify-center hover:bg-caramel transition-colors" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-espresso text-cream flex items-center justify-center hover:bg-caramel transition-colors" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Booking / Contact Form -->
+            <div class="lg:col-span-7 bg-cream/80 p-6 sm:p-8 rounded-2xl border border-latte">
+                <form id="contact-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-xs font-semibold text-espresso uppercase mb-1">Nama Lengkap</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl border border-latte bg-cream focus:outline-none focus:border-caramel text-sm" placeholder="Nama Anda">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-xs font-semibold text-espresso uppercase mb-1">Email Anda</label>
+                            <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl border border-latte bg-cream focus:outline-none focus:border-caramel text-sm" placeholder="email@domain.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="service-type" class="block text-xs font-semibold text-espresso uppercase mb-1">Kategori Layanan</label>
+                            <select id="service-type" class="w-full px-4 py-3 rounded-xl border border-latte bg-cream focus:outline-none focus:border-caramel text-sm">
+                                <option value="catering">Private Coffee Bar / Event Catering</option>
+                                <option value="workshop">Barista Workshop & Coaching</option>
+                                <option value="consulting">Konsultasi Coffee Shop & Menu</option>
+                                <option value="collaboration">Kolaborasi Brand / Ambassador</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-xs font-semibold text-espresso uppercase mb-1">Estimasi Tanggal Acara</label>
+                            <input type="date" id="date" class="w-full px-4 py-3 rounded-xl border border-latte bg-cream focus:outline-none focus:border-caramel text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-xs font-semibold text-espresso uppercase mb-1">Pesan / Detail Kebutuhan</label>
+                        <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-latte bg-cream focus:outline-none focus:border-caramel text-sm" placeholder="Tuliskan detail acara, jumlah tamu, atau pertanyaan Anda..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-caramel hover:bg-espresso text-cream font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md">
+                        Kirim Pesan Booking
+                    </button>
+                    
+                    <!-- Notification Box -->
+                    <div id="form-status" class="hidden p-4 rounded-xl text-center text-xs font-semibold"></div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-roast text-latte/70 py-12 border-t border-latte/10 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <div class="flex justify-center items-center gap-2 text-xl font-serif font-bold text-cream">
+                <i class="fa-solid fa-mug-hot text-caramel"></i>
+                <span>Rhafa Ramadhan</span>
+            </div>
+            <p class="max-w-md mx-auto text-latte/60">Dedicated to the art and science of specialty coffee brewing.</p>
+            <p>&copy; 2026 Rhafa Ramadhan. Hak Cipta Dilindungi Undang-Undang.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript App Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 2. Brew Calculator Logic
+            const brewBtns = document.querySelectorAll('.brew-btn');
+            const coffeeSlider = document.getElementById('coffee-weight');
+            const coffeeVal = document.getElementById('coffee-val');
+            const waterOutput = document.getElementById('water-output');
+            const grindOutput = document.getElementById('grind-output');
+            const timeOutput = document.getElementById('time-output');
+            const bloomVal = document.getElementById('bloom-val');
+            const pour1Val = document.getElementById('pour1-val');
+            const pour2Val = document.getElementById('pour2-val');
+
+            let currentRatio = 15;
+
+            function updateCalculator() {
+                const coffeeGrams = parseInt(coffeeSlider.value);
+                coffeeVal.textContent = `${coffeeGrams} g`;
+
+                const waterMl = coffeeGrams * currentRatio;
+                waterOutput.textContent = `${waterMl} ml`;
+
+                // Calculate Pour Guides
+                const bloom = coffeeGrams * 3;
+                const pour1 = Math.round(waterMl * 0.6);
+                const pour2 = waterMl;
+
+                bloomVal.textContent = `${bloom} ml`;
+                pour1Val.textContent = `${pour1} ml`;
+                pour2Val.textContent = `${pour2} ml`;
+            }
+
+            brewBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    brewBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-caramel/20', 'border-caramel');
+                        b.classList.add('border-latte/20');
+                    });
+                    
+                    btn.classList.add('active', 'bg-caramel/20', 'border-caramel');
+                    btn.classList.remove('border-latte/20');
+
+                    currentRatio = parseInt(btn.getAttribute('data-ratio'));
+                    grindOutput.textContent = btn.getAttribute('data-grind');
+                    timeOutput.textContent = btn.getAttribute('data-time');
+
+                    updateCalculator();
+                });
+            });
+
+            coffeeSlider.addEventListener('input', updateCalculator);
+            updateCalculator(); // Initial Run
+
+            // 3. Gallery Filtering Logic
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-espresso', 'text-cream');
+                        b.classList.add('bg-oat', 'text-espresso');
+                    });
+
+                    btn.classList.add('active', 'bg-espresso', 'text-cream');
+                    btn.classList.remove('bg-oat', 'text-espresso');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // 4. Contact Form Handling
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                formStatus.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                formStatus.classList.add('bg-caramel/20', 'text-caramel');
+                formStatus.textContent = 'Terima kasih! Pesan Anda berhasil terkirim. Saya akan menghubungi Anda dalam 24 jam.';
+
+                contactForm.reset();
+                setTimeout(() => {
+                    formStatus.classList.add('hidden');
+                }, 5000);
+            });
+
+            // 5. Navbar Shadow on Scroll
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2');
+                } else {
+                    navbar.classList.remove('py-2');
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
